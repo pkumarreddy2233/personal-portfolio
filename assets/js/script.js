@@ -157,3 +157,20 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const pages = document.querySelectorAll("[data-page]");
+
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+    for (let j = 0; j < pages.length; j++) {
+      pages[j].classList.remove("active");
+      navigationLinks[j].classList.remove("active");
+    }
+
+    pages[i].classList.add("active");
+    this.classList.add("active");
+
+    window.scrollTo(0, 0);
+  });
+}
